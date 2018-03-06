@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import chaimard.krirk.ac.th.krirkshoppingmall.MainActivity;
 import chaimard.krirk.ac.th.krirkshoppingmall.R;
@@ -47,10 +48,23 @@ public class RegisterFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    //ถูกสร้างอัตโนมัติจาก ชื่อ uploadToServer ข้างบน จากกดคีย์ลัด
     private void uploadToserver() {
 
+//        Get Value From EditText  (กลับไปตั้งชื่อ ช่องต่างๆ ที่ fragment_register.xml ให้เรียบร้อยก่อนทำ)
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+    } // uploadToServer
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
