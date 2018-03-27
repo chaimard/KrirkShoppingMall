@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import chaimard.krirk.ac.th.krirkshoppingmall.R;
+import chaimard.krirk.ac.th.krirkshoppingmall.utility.MyAlert;
 
 /**
  * Created by hero on 6/3/2561.
@@ -26,8 +29,40 @@ public class MainFragment extends Fragment {
 //        Register Controler    สร้างอันนี้อันที่ 3 โดยไฮไลน์ทำบรรทัด 33 แล้วกด
         registerControler();
 
+//        Login Controller    // ก่อนอื่นพิพม์ด้านล่างคอมเมนต์นี้ว่า Button button = getView().findViewById(R.id.btnlogin);
+// แล้วเลือกทั้งหมด กดคีย์ ctrl+alt+M
+        loginController();
 
     }//Main Method
+
+    private void loginController() {
+        Button button = getView().findViewById(R.id.btnlogin);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                EditText userEditText = getView().findViewById(R.id.btnUser);
+                EditText passwordEditText = getView().findViewById(R.id.btnPassword);
+
+                String userString = userEditText.getText().toString().trim();
+                String passwordString = passwordEditText.getText().toString().trim();
+
+                if (userString.isEmpty() || passwordString.isEmpty()) {
+//                    Have Space
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.myDialog(getString(R.string.title_have_space),
+                            getString(R.string.message_have_space));
+
+
+                } else {
+//                    No space
+
+
+                }
+
+            }
+        });
+    }
 
     private void registerControler() {
         TextView textView = getView().findViewById(R.id.txtNewRegister);
