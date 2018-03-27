@@ -12,10 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import chaimard.krirk.ac.th.krirkshoppingmall.MainActivity;
 import chaimard.krirk.ac.th.krirkshoppingmall.R;
+import chaimard.krirk.ac.th.krirkshoppingmall.utility.AddNewUserToServer;
 import chaimard.krirk.ac.th.krirkshoppingmall.utility.MyAlert;
+import chaimard.krirk.ac.th.krirkshoppingmall.utility.MyConstant;
 
 /**
  * Created by hero on 6/3/2561.
@@ -110,11 +113,30 @@ public class RegisterFragment extends Fragment {
                     "Please Choose Mode");
 
         } else {
-//            Choose Mode
+//            Choose Mode Ok
+
+            try {
+
+                MyConstant myConstant = new MyConstant();
+                AddNewUserToServer addNewUserToServer = new AddNewUserToServer(getActivity());
+                addNewUserToServer.execute(nameString,userString,
+                        passwordString,modeString,myConstant.getUrlAddUser());
+
+                String result = addNewUserToServer.get();
+                if (Boolean.parseBoolean(result)) {
+                    getActivity().getSupportFragmentManager().popBackStack();
+                } else {
+                    Toast.makeText(getActivity(),"Please Try again",
+                            Toast.LENGTH_LONG).show();
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
-
-        }
+        } // if
 
 
 
